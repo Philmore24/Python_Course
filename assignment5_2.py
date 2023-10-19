@@ -23,5 +23,5 @@ while True:
     elif intval > largest:
        largest = intval
 
-print("Maximum is", largest)
+print("Maximum isg", largest)
 print("Minimum is", smallest)
