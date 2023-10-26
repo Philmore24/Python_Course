@@ -1,12 +1,34 @@
 
 fname = input("Enter file name: ")
+if len(fname) == 0:
+    fname ='romeo.txt'
+
+fh = open(fname)
+newList = list()
+for line in fh:
+   line =line.rstrip()
+   words = line.split()
+   for word in words:
+       if word not in newList:
+           newList.append(word)
+       elif word in newList:
+           continue
+
+newList.sort()
+print(newList)
+#worked and submitted
+
+
+fname = input("Enter file name: ")
+if len(fname) < 0:
+    fname= "romeo.txt"
 fh = open(fname)
 lst = list()
 for line in fh:
    print(line.rstrip())
 
       #solution 1
-fname = input("Enter file name: ") 
+fname = input("Enter file name: ")
 fh = open("romeo.txt")
 newlist = list ()
 for line in fh:
@@ -19,6 +41,10 @@ for line in fh:
 newlist.sort ()
 print (newlist)
 
+'''
+if len(fname) == 0:
+    fname = open('romeo.txt')
+
       #solution 2
 fname = input("Enter file name: ")
 fh = open(fname)
@@ -29,3 +55,4 @@ for line in fh:
             lst.append(i)
 lst.sort()
 print(lst)
+'''
