@@ -7,12 +7,15 @@ lst = list()
 
 
 for line in fname:
-    start_line = line.strip()
+    start_line = line.trip() # use function trip instead of rstrip
 
+#use this as the gaurdian when return error the list is past range
+    if start_line.startswith('From:'):
+        continue
     if  start_line.startswith('From'):
-        spline = start_line.split()
+        split_line = start_line.split()
 
-        time = spline[5]
+        time = split_line[5]
         tsplit = time.split(':')
 
         t1 = tsplit[0].split()
@@ -23,9 +26,11 @@ for line in fname:
             else:
                 d[t] = d[t] + 1
 
+# Got the key and values from the dictionary using the fuction 'items'
 for k,v in d.items():
-    lst.append((k,v))
-lst = sorted(lst)
+# appended the k, v in the listed surrounded by brackets and common
+    lst.sort() #sorted the list by key which is the hr
+    lst.append((k,v)) #added the k, v to the list to be printed
 
 for k,v in lst:
     print(k,v)
